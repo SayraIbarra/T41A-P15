@@ -53,7 +53,10 @@ jobs:
     - name: Create views
       run: |
         PGPASSWORD=postgres psql -h localhost -U postgres -d test_db -f 03_create_views.sql          
-        
+    - name: Create functions
+      run: |
+        PGPASSWORD=postgres psql -h localhost -U postgres -d test_db -f 04_create_functions.sql
+
     - name: Run tests
       run: |
         pytest
